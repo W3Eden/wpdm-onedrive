@@ -76,10 +76,17 @@ if (defined('WPDM_VERSION')) {
                                    value="<?php echo isset($wpdm_onedrive['client_secret']) ? $wpdm_onedrive['client_secret'] : ''; ?>"/>
                         </td>
 
-                        <tr>
+                    <tr>
                         <td>Tenant ID</td>
                         <td><input type="text" name="__wpdm_onedrive[tenant_id]" class="form-control"
                                    value="<?php echo isset($wpdm_onedrive['tenant_id']) ? $wpdm_onedrive['tenant_id'] : ''; ?>"/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Base Url</td>
+                        <td><input type="text" name="__wpdm_onedrive[base_Url]" class="form-control"
+                                   value="<?php echo isset($wpdm_onedrive['base_Url']) ? $wpdm_onedrive['base_Url'] : ''; ?>"/>
                         </td>
                     </tr>
                 </table>
@@ -98,7 +105,9 @@ if (defined('WPDM_VERSION')) {
                 <script type="text/javascript" src="https://alcdn.msauth.net/browser/2.19.0/js/msal-browser.min.js"></script>
                 <!-- <script type="text/javascript" src="<?= home_url('/wp-content/plugins') ?>/wpdm-onedrive/js/auth.js"></script> -->
                 <script type="text/javascript">
-                    const baseUrl = "https://iyulad-my.sharepoint.com/";
+
+                    const baseUrl = "<?php echo wpdm_valueof($wpdm_onedrive, 'base_Url'); ?>"
+                    // const baseUrl = "https://iyulad-my.sharepoint.com/";
                     //const baseUrl = "https://onedrive.live.com/";
                     function combine(...paths) {
 
@@ -431,5 +440,3 @@ if (defined('WPDM_VERSION')) {
     new OneDrive();
 }
 
-// redirectUrl:
-// http://localhost/wpdmpro/wp-admin/post-new.php?post_type=wpdmpro
