@@ -107,7 +107,6 @@ if (defined('WPDM_VERSION')) {
                 <script type="text/javascript">
 
                     const baseUrl = "<?php echo wpdm_valueof($wpdm_onedrive, 'base_Url'); ?>"
-                    // const baseUrl = "https://iyulad-my.sharepoint.com/";
                     //const baseUrl = "https://onedrive.live.com/";
                     function combine(...paths) {
 
