@@ -5,6 +5,7 @@
   Plugin URI: http://www.wpdownloadmanager.com/
   Author: Jesmeen
   Version: 2.0.0
+  Text Domain: wpdm-onedrive
   Author URI: http://www.wpdownloadmanager.com/
  */
 namespace WPDM\AddOn;
@@ -16,6 +17,9 @@ if (defined('WPDM_VERSION')) {
     if (!defined('WPDM_CLOUD_STORAGE'))
         define('WPDM_CLOUD_STORAGE', 1);
 
+    add_action('plugin_loaded', function (){
+        load_plugin_textdomain('wpdm-onedrive', WP_PLUGIN_URL . "/wpdm-onedrive/languages/", 'wpdm-onedrive/languages/');
+    });
     class OneDrive {
 
         function __construct() {
@@ -50,41 +54,41 @@ if (defined('WPDM_VERSION')) {
             $wpdm_onedrive = maybe_unserialize(get_option('__wpdm_onedrive', array()));
             ?>
             <div class="panel panel-default">
-                <div class="panel-heading"><b><?php _e('OneDrive API Credentials', 'wpdmpro'); ?></b></div>
+                <div class="panel-heading"><b><?php _e('OneDrive API Credentials', 'wpdm-onedrive'); ?></b></div>
 
                 <table class="table">
 
 
 
                     <tr>
-                        <td>Redirect Url</td>
+                        <td><?= __('Redirect Url','wpdm-onedrive')?></td>
                         <td><input type="text" name="__wpdm_onedrive[redirect_url]" class="form-control"
                                    value="<?php echo isset($wpdm_onedrive['redirect_url']) ? $wpdm_onedrive['redirect_url'] : ''; ?>"/>
                         </td>
                     </tr>
 
                     <tr>
-                        <td>Client ID</td>
+                        <td><?= __('Client ID','wpdm-onedrive')?></td>
                         <td><input type="text" name="__wpdm_onedrive[client_id]" class="form-control"
                                    value="<?php echo isset($wpdm_onedrive['client_id']) ? $wpdm_onedrive['client_id'] : ''; ?>"/>
                         </td>
                     </tr>
 
                     <tr>
-                        <td>Client Secret</td>
+                        <td><?= __('Client Secret','wpdm-onedrive') ?></td>
                         <td><input type="text" name="__wpdm_onedrive[client_secret]" class="form-control"
                                    value="<?php echo isset($wpdm_onedrive['client_secret']) ? $wpdm_onedrive['client_secret'] : ''; ?>"/>
                         </td>
 
                     <tr>
-                        <td>Tenant ID</td>
+                        <td><?= __('Tenant ID','wpdm-onedrive')?></td>
                         <td><input type="text" name="__wpdm_onedrive[tenant_id]" class="form-control"
                                    value="<?php echo isset($wpdm_onedrive['tenant_id']) ? $wpdm_onedrive['tenant_id'] : ''; ?>"/>
                         </td>
                     </tr>
 
                     <tr>
-                        <td>Base Url</td>
+                        <td><?= __('Base Url','wpdm-onedrive')?></td>
                         <td><input type="text" name="__wpdm_onedrive[base_Url]" class="form-control"
                                    value="<?php echo isset($wpdm_onedrive['base_Url']) ? $wpdm_onedrive['base_Url'] : ''; ?>"/>
                         </td>
@@ -426,7 +430,7 @@ if (defined('WPDM_VERSION')) {
                 </script>
 
 
-                <a href="#" id="btn-onedrive" style="margin-top: 10px;" title="OneDrive" onclick="return launchOneDrivePicker()" class="btn wpdm-onedrive btn-block">Select From OneDrive</a>
+                <a href="#" id="btn-onedrive" style="margin-top: 10px;" title="OneDrive" onclick="return launchOneDrivePicker()" class="btn wpdm-onedrive btn-block"><?= __('Select From OneDrive','wpdm-onedrive')?></a>
 
             </div>
 
