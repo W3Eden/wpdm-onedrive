@@ -4,7 +4,7 @@
   Description: OneDrive Explorer for WordPress Download Manager
   Plugin URI: http://www.wpdownloadmanager.com/
   Author: Jesmeen
-  Version: 2.0.0
+  Version: 2.0.1
   Text Domain: wpdm-onedrive
   Author URI: http://www.wpdownloadmanager.com/
  */
